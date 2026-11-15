@@ -1,0 +1,7 @@
+step,node,g_km,h_km,priority_km,action
+1,CW,0.0,54.0,54.0,expand
+2,MH,10.5,44.0,54.5,expand
+3,SYP,12.6,42.0,54.6,expand
+4,TY,25.6,29.0,54.6,expand
+5,KF,29.1,25.0,54.1,expand
+6,TSW,54.7,0.0,54.7,goal
