@@ -1,0 +1,85 @@
+|--- alcohol <= 10.85
+|   |--- volatile_acidity <= 0.21
+|   |   |--- sulphates <= 0.84
+|   |   |   |--- alcohol <= 10.35
+|   |   |   |   |--- citric_acid <= 0.28
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- citric_acid >  0.28
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- alcohol >  10.35
+|   |   |   |   |--- chlorides <= 0.04
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- chlorides >  0.04
+|   |   |   |   |   |--- class: 0
+|   |   |--- sulphates >  0.84
+|   |   |   |--- class: 1
+|   |--- volatile_acidity >  0.21
+|   |   |--- pH <= 3.34
+|   |   |   |--- alcohol <= 10.15
+|   |   |   |   |--- residual_sugar <= 13.35
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- residual_sugar >  13.35
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- alcohol >  10.15
+|   |   |   |   |--- sulphates <= 0.56
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- sulphates >  0.56
+|   |   |   |   |   |--- class: 0
+|   |   |--- pH >  3.34
+|   |   |   |--- density <= 0.99
+|   |   |   |   |--- free_sulfur_dioxide <= 31.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- free_sulfur_dioxide >  31.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- density >  0.99
+|   |   |   |   |--- chlorides <= 0.04
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- chlorides >  0.04
+|   |   |   |   |   |--- class: 0
+|--- alcohol >  10.85
+|   |--- alcohol <= 12.05
+|   |   |--- free_sulfur_dioxide <= 11.50
+|   |   |   |--- residual_sugar <= 5.40
+|   |   |   |   |--- pH <= 3.34
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- pH >  3.34
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- residual_sugar >  5.40
+|   |   |   |   |--- density <= 0.99
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- density >  0.99
+|   |   |   |   |   |--- class: 0
+|   |   |--- free_sulfur_dioxide >  11.50
+|   |   |   |--- pH <= 3.25
+|   |   |   |   |--- volatile_acidity <= 0.13
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- volatile_acidity >  0.13
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- pH >  3.25
+|   |   |   |   |--- sulphates <= 0.57
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- sulphates >  0.57
+|   |   |   |   |   |--- class: 1
+|   |--- alcohol >  12.05
+|   |   |--- free_sulfur_dioxide <= 21.50
+|   |   |   |--- free_sulfur_dioxide <= 8.50
+|   |   |   |   |--- citric_acid <= 0.41
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- citric_acid >  0.41
+|   |   |   |   |   |--- class: 0
+|   |   |   |--- free_sulfur_dioxide >  8.50
+|   |   |   |   |--- alcohol <= 13.25
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- alcohol >  13.25
+|   |   |   |   |   |--- class: 1
+|   |   |--- free_sulfur_dioxide >  21.50
+|   |   |   |--- residual_sugar <= 1.25
+|   |   |   |   |--- alcohol <= 12.75
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- alcohol >  12.75
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- residual_sugar >  1.25
+|   |   |   |   |--- chlorides <= 0.06
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- chlorides >  0.06
+|   |   |   |   |   |--- class: 0

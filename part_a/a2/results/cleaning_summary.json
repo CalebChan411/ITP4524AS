@@ -1,0 +1,25 @@
+{
+  "raw_rows": 6697,
+  "duplicate_rows": 1177,
+  "missing_cells": 407,
+  "rows_with_missing": 200,
+  "missing_by_column": {
+    "fixed_acidity": 34,
+    "volatile_acidity": 50,
+    "citric_acid": 28,
+    "residual_sugar": 44,
+    "chlorides": 35,
+    "free_sulfur_dioxide": 40,
+    "total_sulfur_dioxide": 31,
+    "density": 41,
+    "pH": 40,
+    "sulphates": 27,
+    "alcohol": 37,
+    "quality": 0,
+    "color": 0
+  },
+  "after_dedup_rows": 5520,
+  "missing_rows_removed_after_dedup": 200,
+  "clean_rows": 5320,
+  "raw_sha256": "3bccfeab023bee1a43b1b697a387eab12b145b5aa3c36adbcc31cf0649925361"
+}

@@ -15,3 +15,23 @@
 python3 part_a/a1/route_finding.py
 python3 -m unittest discover -s part_a/a1/tests -v
 ```
+
+## Part A2: Wine Quality
+
+- Python 程序：[wine_quality.py](part_a/a2/wine_quality.py)
+- 英文报告：[report.md](part_a/a2/report.md) / [report.docx](part_a/a2/report.docx)
+- 中文安装、运行与测试：[README.md](part_a/a2/README.md)
+- 老师原始数据：[winequality_with_missing.csv](part_a/a2/data/raw/winequality_with_missing.csv)
+- 训练/测试集：[data/splits](part_a/a2/data/splits/)
+- 已训练的四个模型：[models](part_a/a2/models/)
+- 指标、预测和图表：[results](part_a/a2/results/)
+
+Python 3.12 环境中，从仓库根目录运行：
+
+```bash
+python -m pip install -r part_a/a2/requirements.txt
+python part_a/a2/wine_quality.py --verify
+python -m unittest discover -s part_a/a2/tests -v
+```
+
+完整重跑：`python part_a/a2/wine_quality.py`。

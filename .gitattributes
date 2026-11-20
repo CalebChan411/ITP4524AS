@@ -1,1 +1,2 @@
 *.csv text eol=lf
+part_a/a2/data/raw/winequality_with_missing.csv -text whitespace=cr-at-eol
