@@ -3,7 +3,22 @@
 Run with Python 3.12: python wine_quality.py
 """
 
+import importlib.util
 from pathlib import Path
+import subprocess
+import sys
+
+BASE = Path(__file__).resolve().parent
+
+# Install missing libraries for the Python interpreter running this script.
+if __name__ == "__main__":
+    modules = ["pandas", "sklearn", "joblib"]
+    if any(importlib.util.find_spec(name) is None for name in modules):
+        print("Installing missing dependencies from requirements.txt...", flush=True)
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "-r", str(BASE / "requirements.txt")],
+            check=True,
+        )
 
 import joblib
 import pandas as pd
@@ -14,7 +29,6 @@ from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score, confusion_matrix,
 )
 
-BASE = Path(__file__).resolve().parent
 FEATURES = [
     "fixed_acidity", "volatile_acidity", "citric_acid", "residual_sugar",
     "chlorides", "free_sulfur_dioxide", "total_sulfur_dioxide", "density",

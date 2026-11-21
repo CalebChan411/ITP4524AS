@@ -30,8 +30,8 @@ python3 -m unittest discover -s part_a/a1/tests -v
 Python 3.12 环境中，从仓库根目录运行：
 
 ```bash
-python -m pip install -r part_a/a2/requirements.txt
 python part_a/a2/wine_quality.py
 ```
 
 A2 程序只执行数据处理和建模，报告作为独立文档保留。课程依据和结果核对方法见 A2 中文说明。
+缺少依赖时，A2 会自动调用当前 Python 的 pip 按 requirements.txt 安装；首次安装需要网络及安装权限。
