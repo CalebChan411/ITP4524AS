@@ -1,3 +1,3 @@
-algorithm,path,distance_km,selected_nodes,expanded_nodes,edge_checks,heap_pushes,stale_pops,peak_frontier_entries
-UCS,CW -> MH -> SYP -> TY -> KF -> TSW,54.7,18,17,62,22,2,8
-A*,CW -> MH -> SYP -> TY -> KF -> TSW,54.7,6,5,23,17,0,12
+algorithm,path,distance_km,expanded_nodes,expanded_order
+UCS,CW -> MH -> SYP -> TY -> KF -> TSW,54.7,17,CW -> CB -> KT -> MH -> YCM -> LW -> SYP -> KB -> WCH -> CCI -> HW -> TY -> ST -> KC -> KF -> TW -> TM
+A*,CW -> MH -> SYP -> TY -> KF -> TSW,54.7,5,CW -> MH -> SYP -> TY -> KF

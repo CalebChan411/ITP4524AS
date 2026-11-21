@@ -6,16 +6,17 @@
 ## Part A1: Route Finding
 
 - Python 程序：[route_finding.py](part_a/a1/route_finding.py)
-- 英文报告：[report.md](part_a/a1/report.md) / [report.docx](part_a/a1/report.docx)
+- 英文报告：[report.docx](part_a/a1/report.docx)
 - 中文运行与学习说明：[README.md](part_a/a1/README.md)
-- 实际运行结果：[results](part_a/a1/results/)
+- 实际运行结果：[comparison.csv](part_a/a1/results/comparison.csv)
 
 在仓库根目录运行（只需要 Python 3，不需安装第三方库）：
 
 ```bash
 python3 part_a/a1/route_finding.py
-python3 -m unittest discover -s part_a/a1/tests -v
 ```
+
+A1 不需要 `requirements.txt` 或安装脚本；程序会更新比较结果 CSV，Word 报告独立保留。
 
 ## Part A2: Wine Quality
 
