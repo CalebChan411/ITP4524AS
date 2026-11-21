@@ -1,6 +1,7 @@
 # ITP4524 Assignment
 
 本仓库的作业以已提供的 ITP4524 教材为基础；必要的教材外补充会单独说明。
+功能范围按老师的题目要求安排，优先采用便于理解和解释的课堂方法。
 
 ## Part A1: Route Finding
 
@@ -19,19 +20,18 @@ python3 -m unittest discover -s part_a/a1/tests -v
 ## Part A2: Wine Quality
 
 - Python 程序：[wine_quality.py](part_a/a2/wine_quality.py)
-- 英文报告：[report.md](part_a/a2/report.md) / [report.docx](part_a/a2/report.docx)
+- 英文报告：[report.docx](part_a/a2/report.docx)
 - 中文安装、运行与测试：[README.md](part_a/a2/README.md)
 - 老师原始数据：[winequality_with_missing.csv](part_a/a2/data/raw/winequality_with_missing.csv)
 - 训练/测试集：[data/splits](part_a/a2/data/splits/)
 - 已训练的四个模型：[models](part_a/a2/models/)
-- 指标、预测和图表：[results](part_a/a2/results/)
+- 清洗统计、指标和混淆矩阵：[results](part_a/a2/results/)
 
 Python 3.12 环境中，从仓库根目录运行：
 
 ```bash
 python -m pip install -r part_a/a2/requirements.txt
-python part_a/a2/wine_quality.py --verify
-python -m unittest discover -s part_a/a2/tests -v
+python part_a/a2/wine_quality.py
 ```
 
-完整重跑：`python part_a/a2/wine_quality.py`。
+A2 程序只执行数据处理和建模，报告作为独立文档保留。课程依据和结果核对方法见 A2 中文说明。

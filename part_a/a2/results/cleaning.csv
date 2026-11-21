@@ -1,0 +1,8 @@
+item,count
+raw_rows,6697
+duplicate_rows,1177
+missing_cells,407
+rows_with_missing,200
+after_dedup_rows,5520
+missing_rows_removed_after_dedup,200
+clean_rows,5320
