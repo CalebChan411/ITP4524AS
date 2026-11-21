@@ -4,16 +4,19 @@
 
 ## 运行
 
-使用 Python 3.12。下载最新版仓库后解压到新文件夹，进入 `part_a/a2` 目录，在终端运行：
+当前固定依赖有 Python 3.11–3.13 的预编译安装包，已实际验证 Python 3.12，并非算法必须使用 3.12。Python 3.15 不适合直接安装当前固定版本。下载最新版后进入 `part_a/a2` 目录，以下以 Python 3.12 为例：
 
 ```powershell
+py -3.12 install_requirements.py
 py -3.12 wine_quality.py
 ```
 
 macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 从仓库根目录也可以运行 `python part_a/a2/wine_quality.py`。
 
-在 VS Code/IDLE 中选择 Python 3.12 后直接运行也可以。程序先检查 pandas、scikit-learn 和 joblib；缺少时自动调用当前 Python 的 pip 安装 `requirements.txt` 中的依赖，已装齐则直接执行。首次安装需要联网及该 Python 环境的安装权限；程序不负责安装 Python 本身。
+也可以在 VS Code/IDLE 选择相应 Python，先运行 `install_requirements.py`，成功后再运行 `wine_quality.py`。安装脚本直接读取同目录的 `requirements.txt`，不需要手动输入 pip 命令，并把库安装到运行该脚本的 Python 环境。只有首次配置或依赖变化时需要安装。
+
+在 Windows 双击安装脚本也可以，但系统必须把 `.py` 关联到兼容的 Python；若仍关联到 3.15，请在 IDE 中选对解释器再运行。安装结束会显示成功或失败信息；在独立终端窗口中会等待回车后关闭。安装需要网络及安装权限，脚本不负责安装 Python 本身。
 
 ## 核对结果
 
@@ -29,8 +32,9 @@ macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 
 | 文件/内容 | 用途或教材依据 |
 | --- | --- |
-| `wine_quality.py` | 唯一的 A2 程序；执行清洗、训练、评价和保存 |
-| `requirements.txt` | 自动安装依赖时使用的清单，请与程序放在一起 |
+| `wine_quality.py` | A2 建模程序；执行清洗、训练、评价和保存 |
+| `install_requirements.py` | 单独的依赖安装小工具，不执行建模 |
+| `requirements.txt` | 安装脚本读取的依赖清单，请放在同目录 |
 | `data/raw/winequality_with_missing.csv` | 老师提供的原文件，使用分号分隔 |
 | `data/splits/` | 红/白酒各自的训练集与测试集，共四份 CSV |
 | `models/` | 红/白酒各自的回归与分类模型，共四个文件 |
@@ -43,7 +47,7 @@ macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 `is_good` 是由 `quality >= 7` 生成的分类标签。模型输入只使用十一项理化特征，排除 `quality`、`is_good` 和每组内恒定的 `color`。模型按课程的 `fit`、`predict` 流程训练与评价。
 
 分类树使用固定的深度及叶节点样本数限制，没有按测试集结果调参。回归和分类算法与评价来自教材；`joblib` 仅用于保存老师要求提交的已训练模型，`pathlib` 用于定位文件。
-安装库仍使用 Python Foundations 3 介绍的 pip；启动时自动检查并调用 pip 是为运行方便补充的标准库操作，不属于机器学习方法。
+安装库仍使用 Python Foundations 3 介绍的 pip；单独的安装脚本仅为运行方便补充标准库调用，不属于机器学习方法。建模程序不会自动安装依赖。
 
 ## 报告要求
 
@@ -53,4 +57,4 @@ macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 
 老师明确要求报告、全部源码、训练/测试数据集和已训练模型，对应 `report.docx`、`wine_quality.py`、`data/splits/` 和 `models/`。
 
-`requirements.txt` 用于自动安装，`data/raw/` 用于重跑，运行时应保留这两项。本说明用于告诉老师如何运行；`results/` 是报告中数据的核对材料，并非额外作业任务。建议将整个最新版 `a2` 目录压缩提交，保留目录结构。运行后出现的 `__pycache__`、本机虚拟环境 `.venv` 不必放进压缩包，仓库根目录的环境恢复确认文件也不属于 A2。
+`install_requirements.py` 和 `requirements.txt` 用于安装，`data/raw/` 用于重跑，请一起保留。本说明用于告诉老师如何运行；`results/` 是报告中数据的核对材料，并非额外作业任务。建议将整个最新版 `a2` 目录压缩提交，保留目录结构。运行后出现的 `__pycache__`、本机虚拟环境 `.venv` 不必放进压缩包，仓库根目录的环境恢复确认文件也不属于 A2。
