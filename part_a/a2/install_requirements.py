@@ -7,7 +7,7 @@ import sys
 
 def main():
     print("Python:", sys.version.split()[0], flush=True)
-    # Both pinned numerical packages have wheels for Python 3.11-3.13.
+    # The pinned dependencies have wheels for Python 3.11-3.13.
     if sys.version_info[:2] not in [(3, 11), (3, 12), (3, 13)]:
         print("This requirements.txt targets Python 3.11-3.13; 3.12 has been tested.")
         print("Select one of those interpreters and run this file again.")

@@ -26,6 +26,7 @@ python3 -m unittest discover -s part_a/a1/tests -v
 - 训练/测试集：[data/splits](part_a/a2/data/splits/)
 - 已训练的四个模型：[models](part_a/a2/models/)
 - 清洗统计、指标和混淆矩阵：[results](part_a/a2/results/)
+- 三张结果图：[plots](part_a/a2/results/plots/)
 
 以下以已验证的 Python 3.12 为例，从仓库根目录运行：
 
@@ -35,4 +36,4 @@ python part_a/a2/wine_quality.py
 ```
 
 A2 程序只执行数据处理和建模，报告作为独立文档保留。课程依据和结果核对方法见 A2 中文说明。
-依赖由单独的 install_requirements.py 按 requirements.txt 安装；安装需要网络及安装权限。当前固定依赖的预编译包覆盖 Python 3.11–3.13，3.12 已验证。
+依赖由单独的 install_requirements.py 按 requirements.txt 安装；安装需要网络及安装权限。当前固定依赖的预编译包覆盖 Python 3.11–3.13。

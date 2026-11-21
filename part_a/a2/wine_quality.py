@@ -7,11 +7,15 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")  # Save figures without opening extra windows.
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import (
     mean_absolute_error, mean_squared_error, r2_score,
     accuracy_score, precision_score, recall_score, f1_score, confusion_matrix,
+    ConfusionMatrixDisplay,
 )
 
 BASE = Path(__file__).resolve().parent
@@ -69,6 +73,14 @@ def analyse_wine(wine, color):
     pd.DataFrame(matrix, index=[0, 1], columns=[0, 1]).to_csv(
         BASE / f"results/confusion_{color}.csv", index_label="actual/predicted"
     )
+    fig, ax = plt.subplots(figsize=(4, 3.3))
+    ConfusionMatrixDisplay(
+        matrix, display_labels=["Not good (0)", "Good (1)"]
+    ).plot(ax=ax, cmap="Blues", colorbar=False, values_format="d")
+    ax.set_title(f"{color.capitalize()} wine (test set)")
+    fig.tight_layout()
+    fig.savefig(BASE / f"results/plots/confusion_{color}.png", dpi=160)
+    plt.close(fig)
     print(f"\n{color}: {len(train)} training rows, {len(test)} testing rows")
     print("Confusion matrix (actual rows, predicted columns; order: 0, 1):")
     print(matrix)
@@ -76,7 +88,7 @@ def analyse_wine(wine, color):
 
 
 def main():
-    for folder in ["data/splits", "models", "results"]:
+    for folder in ["data/splits", "models", "results/plots"]:
         (BASE / folder).mkdir(parents=True, exist_ok=True)
 
     # The teacher's file uses semicolons and spaces in its column names.
@@ -100,6 +112,16 @@ def main():
     cleaning.to_csv(BASE / "results/cleaning.csv", index=False)
     print(cleaning.to_string(index=False))
 
+    # This distribution includes all cleaned records, before the train/test split.
+    distribution = clean.groupby(["quality", "color"]).size().unstack(fill_value=0)
+    fig, ax = plt.subplots(figsize=(6, 3.2))
+    distribution.plot.bar(ax=ax, color={"red": "firebrick", "white": "goldenrod"}, rot=0)
+    ax.set(title="Cleaned wine data: quality distribution",
+           xlabel="Quality score", ylabel="Number of records")
+    fig.tight_layout()
+    fig.savefig(BASE / "results/plots/quality_distribution.png", dpi=160)
+    plt.close(fig)
+
     results = []
     for color in ["red", "white"]:
         wine = clean[clean["color"] == color]
@@ -109,6 +131,7 @@ def main():
     metrics.to_csv(BASE / "results/metrics.csv", index=False)
     print("\nTest-set results:")
     print(metrics.to_string(index=False))
+    print("\nThree charts saved to:", BASE / "results/plots")
 
 
 if __name__ == "__main__":

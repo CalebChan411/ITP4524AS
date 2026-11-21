@@ -1,10 +1,10 @@
 # Part A2：Wine Quality
 
-仅保留作业要求的清洗、顺序划分、回归、分类、指标和模型保存。
+完成作业要求的清洗、顺序划分、回归、分类、指标和模型保存，并用三张图说明结果。
 
 ## 运行
 
-当前固定依赖有 Python 3.11–3.13 的预编译安装包，已实际验证 Python 3.12，并非算法必须使用 3.12。Python 3.15 不适合直接安装当前固定版本。下载最新版后进入 `part_a/a2` 目录，以下以 Python 3.12 为例：
+当前固定依赖有 Python 3.11–3.13 的预编译安装包，已实际验证 Python 3.12 和 3.13，并非算法必须使用 3.12。Python 3.15 不适合直接安装当前固定版本。下载最新版后进入 `part_a/a2` 目录，以下以 Python 3.12 为例：
 
 ```powershell
 py -3.12 install_requirements.py
@@ -27,6 +27,7 @@ macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 - 白酒：3,168 行训练、793 行测试。
 - 结果写入 `results/metrics.csv`，混淆矩阵写入 `results/confusion_red.csv` 和 `confusion_white.csv`。
 - 混淆矩阵的行是真实类别，列是预测类别；0 表示非好酒，1 表示好酒。
+- 三张图自动更新到 `results/plots/`：红酒测试集混淆矩阵、白酒测试集混淆矩阵、清洗后全体记录的质量分布。
 
 ## 文件与课程依据
 
@@ -38,11 +39,12 @@ macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 | `data/raw/winequality_with_missing.csv` | 老师提供的原文件，使用分号分隔 |
 | `data/splits/` | 红/白酒各自的训练集与测试集，共四份 CSV |
 | `models/` | 红/白酒各自的回归与分类模型，共四个文件 |
-| `results/` | 清洗统计、要求的七项指标和两个混淆矩阵 |
+| `results/` | 清洗统计、要求的七项指标、混淆矩阵 CSV 及三张图 |
 | `report.docx` | 独立的简短报告，运行程序不会生成或修改它；请阅读并核对分析 |
 | Pandas、条件筛选及索引 | Python Foundations 2；CSV 读写接口用于落实题目要求 |
 | `LinearRegression`、MAE/MSE/R² | Lecture 5 |
 | `DecisionTreeClassifier`、Accuracy/Precision/Recall/F1/Confusion Matrix | Lecture 6 |
+| Matplotlib 图表 | 教材中的结果可视化方法；图表使用本次运行的真实数据 |
 
 `is_good` 是由 `quality >= 7` 生成的分类标签。模型输入只使用十一项理化特征，排除 `quality`、`is_good` 和每组内恒定的 `color`。模型按课程的 `fit`、`predict` 流程训练与评价。
 
@@ -52,6 +54,7 @@ macOS/Linux 可将 `py -3.12` 换为指向 Python 3.12 的 `python3`。
 ## 报告要求
 
 报告说明重复/缺失数量、模型选择及理由，并列出所有指定指标、混淆矩阵和结果观察。模型效果有限：好酒 Recall 约为 39%/40%，不能只凭 Accuracy 判断表现。
+报告中的两张混淆矩阵图替代相同内容的数字表格，并排展示；质量分布图辅助说明好酒样本较少。程序运行后会更新 PNG，但不会自动修改 Word 报告。若结果改变，请在 Word 中同步更换图片和分析。
 
 ## 提交范围
 
